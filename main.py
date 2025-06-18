@@ -7,12 +7,12 @@ from fastapi import FastAPI, Request
 
 app = FastAPI()
 try:
-    model = keras.models.load_model("baybayin_model_v2.keras")
+    model = keras.models.load_model("model_cc3_2.keras")
 except Exception as e:
     raise RuntimeError(f"Failed to load model: {e}")
 
 
-decoder = {0: 'e_i', 1: 'o_u', 2: 'a'}
+decoder = {0: 'sa', 1: 'da/ra', 2: 'ta'}
 
 @app.post("/predict")
 async def predict(req: Request):
